@@ -2,7 +2,7 @@
 - 👀 I’m interested in Andriod Development
 - 🌱 I’m currently learning Java
 - 💞️ I’m looking to collaborate on Google
-- 📫 How to reach me LindIn
+- 📫 How to reach me LinkedIn
 
 <!---
 Saifuddin53/Saifuddin53 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
