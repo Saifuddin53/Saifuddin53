@@ -6,7 +6,7 @@
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=saifuddin53" alt="saifuddin53" /></a> </p>
 
 
-- 🌱 I’m currently learning **Java , Web development , back-end development**
+- 🌱 I’m currently learning **Java , kotlin , android development , back-end development**
 
 - 👯 I’m looking to collaborate on **Apache beam / Google**
 
