@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Saifuddin Adenwala</h1>
-<h3 align="center">Currently learning skills to become an full stack software developer in India</h3>
+<h3 align="center">Currently learning skills to become an Android developer</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=saifuddin53&label=Profile%20views&color=0e75b6&style=flat" alt="saifuddin53" /> </p>
 
@@ -8,7 +8,7 @@
 
 - 🌱 I’m currently learning **Java , kotlin , android development , back-end development**
 
-- 👯 I’m looking to collaborate on **Apache beam / Google**
+- 👯 I’m looking to collaborate on **Android based projects**
 
 - 🤝 I’m looking for help to **contribute in open source organizations**
 
