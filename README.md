@@ -14,7 +14,7 @@
 
 - 📫 How to reach me **adenwala32@gmail.com**
 
-**Love to learn new skills everyday**
+**Love to learn new skills every day**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
