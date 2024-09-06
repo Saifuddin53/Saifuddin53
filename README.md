@@ -6,11 +6,11 @@
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=saifuddin53" alt="saifuddin53" /></a> </p>
 
 
-- 🌱 Currently advancing in **android development**
+- 🌱 Constantly exploring new **Android development trends**
 
 - 👯 I’m looking to collaborate on **Android based projects**
 
-- 🤝 I’m looking for help to **contribute in open source organizations**
+- 🤝 Contributing to open-source **Android projects**
 
 - 📫 How to reach me **adenwala32@gmail.com**
 
