@@ -24,11 +24,11 @@
 ## GitHub activity
 
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Saifuddin53&theme=tokyonight" alt="Saifuddin's GitHub contribution summary" width="100%" />
+  <img src="./assets/github-summary.svg" alt="Saifuddin's GitHub contribution summary" width="100%" />
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Saifuddin53&theme=tokyonight&hide_border=true" alt="Saifuddin's GitHub streak" />
+  <img src="./assets/github-streak.svg" alt="Saifuddin's GitHub streak" />
 </p>
 
 ## Open source
