@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the self-hosted animated systems hero for the profile README."""
+"""Generate the self-hosted animated build-pipeline hero."""
 
 from pathlib import Path
 
@@ -9,141 +9,118 @@ OUTPUT = ROOT / "assets" / "profile-terminal.svg"
 
 
 def build_svg() -> str:
-    return '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+    return '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
   <title id="title">Saifuddin Adenwala, Mobile and Full-Stack Product Engineer</title>
-  <desc id="desc">An animated mobile systems map connecting Android, iOS, watchOS, IoT, realtime services, backend, and cloud infrastructure.</desc>
+  <desc id="desc">A product build pipeline spanning native mobile, cross-platform engineering, connected systems, backend, cloud, deployment, and scale.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#07111f"/>
-      <stop offset="0.55" stop-color="#0b1728"/>
+      <stop offset="0.58" stop-color="#0b1728"/>
       <stop offset="1" stop-color="#101827"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#22d3ee"/>
-      <stop offset="1" stop-color="#fbbf24"/>
+      <stop offset="0.55" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#102235"/>
+      <stop offset="1" stop-color="#0a1625"/>
     </linearGradient>
     <radialGradient id="glow">
-      <stop offset="0" stop-color="#22d3ee" stop-opacity=".18"/>
+      <stop offset="0" stop-color="#22d3ee" stop-opacity=".16"/>
       <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
     </radialGradient>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0H0V32" fill="none" stroke="#93c5fd" stroke-opacity=".035"/>
     </pattern>
-    <clipPath id="screen"><rect x="24" y="24" width="1152" height="452" rx="18"/></clipPath>
+    <clipPath id="screen"><rect x="24" y="24" width="1152" height="382" rx="18"/></clipPath>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000814" flood-opacity=".55"/>
     </filter>
-    <filter id="nodeGlow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <style>
       text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-      .body { fill:#d8e2f0; font-size:18px; }
-      .label { fill:#7dd3fc; font-size:13px; letter-spacing:1.2px; }
-      .tiny { fill:#94a3b8; font-size:11px; letter-spacing:.7px; }
-      .route { fill:none; stroke:#164e63; stroke-width:2; stroke-linecap:round; stroke-dasharray:5 7; }
-      .device { fill:#091421; stroke:#38bdf8; stroke-width:1.5; }
-      .service { fill:#111827; stroke:#fbbf24; stroke-width:1.5; }
-      .reveal { opacity:0; animation:reveal .55s cubic-bezier(.2,.75,.25,1) forwards; }
+      .eyebrow { fill:#7dd3fc; font-size:13px; letter-spacing:1.6px; }
+      .panel-title { fill:#e2e8f0; font-size:14px; font-weight:700; letter-spacing:.7px; }
+      .panel-copy { fill:#8fa6bf; font-size:12px; }
+      .flow { animation:flow 2.6s linear infinite; }
       .cursor { animation:blink 1s steps(1,end) infinite; }
-      .scan { animation:scan 5.5s ease-in-out infinite; }
-      .pulse { animation:pulse 2.4s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
-      .flow { animation:flow 1.9s linear infinite; }
-      .flow-late { animation:flow 1.9s .9s linear infinite; }
-      @keyframes reveal { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+      .signal { animation:signal 4.8s ease-in-out infinite; }
+      .signal-delay { animation-delay:1.2s; }
+      .signal-delay-2 { animation-delay:2.4s; }
+      .signal-delay-3 { animation-delay:3.6s; }
+      @keyframes flow { to { stroke-dashoffset:-30; } }
       @keyframes blink { 50% { opacity:0; } }
-      @keyframes scan { 0%,15% { transform:translateY(-80px); opacity:0; } 35% { opacity:.4; } 70%,100% { transform:translateY(420px); opacity:0; } }
-      @keyframes pulse { 0%,100% { opacity:.45; transform:scale(.88); } 50% { opacity:1; transform:scale(1.12); } }
-      @keyframes flow { to { stroke-dashoffset:-24; } }
+      @keyframes signal { 0%,22%,100% { stroke:#1e3a4a; } 8%,14% { stroke:#22d3ee; } }
       @media (prefers-reduced-motion: reduce) {
-        .reveal { opacity:1; animation:none; } .cursor,.scan,.pulse,.flow,.flow-late { animation:none; }
+        .flow,.cursor,.signal { animation:none; }
       }
     </style>
   </defs>
 
-  <rect width="1200" height="500" rx="24" fill="#030712"/>
-  <rect x="24" y="24" width="1152" height="452" rx="18" fill="url(#background)" filter="url(#shadow)"/>
+  <rect width="1200" height="430" rx="24" fill="#030712"/>
+  <rect x="24" y="24" width="1152" height="382" rx="18" fill="url(#background)" filter="url(#shadow)"/>
   <g clip-path="url(#screen)">
-    <rect x="24" y="24" width="1152" height="452" fill="url(#grid)"/>
-    <circle cx="1010" cy="92" r="270" fill="url(#glow)"/>
+    <rect x="24" y="24" width="1152" height="382" fill="url(#grid)"/>
+    <circle cx="1030" cy="80" r="290" fill="url(#glow)"/>
     <rect x="24" y="24" width="1152" height="48" fill="#0a1220"/>
     <circle cx="52" cy="48" r="6" fill="#fb7185"/>
     <circle cx="74" cy="48" r="6" fill="#fbbf24"/>
     <circle cx="96" cy="48" r="6" fill="#34d399"/>
-    <text x="600" y="54" text-anchor="middle" fill="#718096" font-size="14">saifuddin@product-engineering: ~</text>
-    <rect class="scan" x="24" y="72" width="1152" height="70" fill="url(#accent)" opacity=".07"/>
-  </g>
-
-  <g class="reveal" style="animation-delay:.12s">
-    <rect x="58" y="94" width="402" height="322" rx="14" fill="#060d18" stroke="#1e3a4a"/>
-    <text x="82" y="119" class="label">MOBILE SYSTEMS // LIVE</text>
-    <circle cx="425" cy="114" r="4" fill="#34d399" class="pulse"/>
-
-    <!-- client devices -->
-    <rect x="84" y="147" width="58" height="96" rx="10" class="device"/>
-    <rect x="91" y="158" width="44" height="68" rx="3" fill="#0c2634"/>
-    <path d="M104 234h18" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-    <text x="113" y="261" text-anchor="middle" class="tiny">ANDROID</text>
-
-    <rect x="174" y="147" width="58" height="96" rx="12" class="device"/>
-    <rect x="181" y="157" width="44" height="69" rx="4" fill="#0c2634"/>
-    <rect x="194" y="151" width="18" height="3" rx="1.5" fill="#38bdf8"/>
-    <text x="203" y="261" text-anchor="middle" class="tiny">iOS</text>
-
-    <rect x="274" y="160" width="58" height="68" rx="18" class="device"/>
-    <rect x="281" y="169" width="44" height="50" rx="13" fill="#0c2634"/>
-    <path d="M289 160v-11h28v11M289 228v11h28v-11" class="device"/>
-    <text x="303" y="261" text-anchor="middle" class="tiny">watchOS</text>
-
-    <!-- routing layer -->
-    <path d="M113 280v25h90M203 280v25M303 280v25H203" class="route flow"/>
-    <rect x="139" y="286" width="128" height="38" rx="19" fill="#0c2634" stroke="#22d3ee"/>
-    <circle cx="158" cy="305" r="5" fill="#22d3ee" class="pulse"/>
-    <text x="207" y="310" text-anchor="middle" fill="#a5f3fc" font-size="12">REALTIME / BLE</text>
-
-    <!-- IoT, backend, cloud -->
-    <rect x="82" y="348" width="88" height="40" rx="8" class="service"/>
-    <circle cx="99" cy="368" r="5" fill="none" stroke="#fbbf24"/>
-    <path d="M106 360q12 8 0 16M111 356q20 12 0 24" fill="none" stroke="#fbbf24" stroke-width="1.3"/>
-    <text x="140" y="372" text-anchor="middle" class="tiny">IoT</text>
-
-    <rect x="191" y="348" width="102" height="40" rx="8" class="service"/>
-    <path d="M207 359h18v18h-18zM211 363h10v10h-10z" fill="none" stroke="#fbbf24"/>
-    <text x="262" y="372" text-anchor="middle" class="tiny">BACKEND</text>
-
-    <path d="M331 380c-14 0-21-9-17-19 3-8 11-11 18-8 4-15 27-17 34-3 14-2 22 8 19 18-2 8-9 12-20 12z" class="service"/>
-    <text x="350" y="371" text-anchor="middle" class="tiny">CLOUD</text>
-
-    <path d="M203 324v25M170 368h21M293 368h21" class="route flow-late"/>
-    <circle cx="180" cy="368" r="3.5" fill="#22d3ee" filter="url(#nodeGlow)" class="pulse"/>
-    <circle cx="303" cy="368" r="3.5" fill="#fbbf24" filter="url(#nodeGlow)" class="pulse"/>
+    <text x="600" y="54" text-anchor="middle" fill="#718096" font-size="14">~/product-engineering</text>
   </g>
 
   <g>
-    <text x="510" y="111" class="body reveal" style="animation-delay:.18s"><tspan fill="#34d399">$</tspan> whoami</text>
-    <text x="510" y="160" fill="#f8fafc" font-size="35" font-weight="700" class="reveal" style="animation-delay:.42s">Saifuddin Adenwala</text>
-    <text x="510" y="190" fill="#7dd3fc" font-size="19" class="reveal" style="animation-delay:.64s">Mobile &amp; Full-Stack Product Engineer</text>
+    <text x="68" y="108" class="eyebrow">MOBILE · SYSTEMS · PRODUCT</text>
+    <text x="68" y="151" fill="#f8fafc" font-size="38" font-weight="700">Saifuddin Adenwala</text>
+    <text x="68" y="181" fill="#7dd3fc" font-size="19">Mobile &amp; Full-Stack Product Engineer</text>
 
-    <text x="510" y="231" class="body reveal" style="animation-delay:.88s"><tspan fill="#34d399">$</tspan> capabilities --core</text>
-    <text x="532" y="264" class="body reveal" style="animation-delay:1.08s"><tspan fill="#fbbf24">→</tspan> Native Android + iOS + watchOS</text>
-    <text x="532" y="294" class="body reveal" style="animation-delay:1.26s"><tspan fill="#fbbf24">→</tspan> Flutter + Kotlin Multiplatform</text>
-    <text x="532" y="324" class="body reveal" style="animation-delay:1.44s"><tspan fill="#fbbf24">→</tspan> BLE / IoT + realtime systems</text>
-    <text x="532" y="354" class="body reveal" style="animation-delay:1.62s"><tspan fill="#fbbf24">→</tspan> Backend + cloud + release engineering</text>
-
-    <text x="510" y="396" class="body reveal" style="animation-delay:1.84s"><tspan fill="#34d399">$</tspan> status</text>
-    <text x="532" y="426" fill="#d8e2f0" font-size="18" class="reveal" style="animation-delay:2.02s">shipping products end-to-end<tspan class="cursor" fill="#22d3ee">_</tspan></text>
+    <text x="1132" y="112" text-anchor="end" fill="#718096" font-size="12" letter-spacing="1.2px">OPEN SOURCE</text>
+    <text x="1132" y="142" text-anchor="end" fill="#a5f3fc" font-size="17">30+ merged upstream PRs</text>
   </g>
 
-  <g class="reveal" style="animation-delay:2.22s">
-    <rect x="58" y="438" width="190" height="24" rx="12" fill="#0e2938" stroke="#155e75"/>
-    <text x="153" y="455" text-anchor="middle" fill="#a5f3fc" font-size="12">50K+ INSTALLS</text>
-    <rect x="260" y="438" width="200" height="24" rx="12" fill="#2b2110" stroke="#854d0e"/>
-    <text x="360" y="455" text-anchor="middle" fill="#fde68a" font-size="12">4.4★ RATING</text>
-    <rect x="510" y="438" width="236" height="24" rx="12" fill="#0e2938" stroke="#155e75"/>
-    <text x="628" y="455" text-anchor="middle" fill="#a5f3fc" font-size="12">30+ UPSTREAM PRs</text>
-    <rect x="758" y="438" width="330" height="24" rx="12" fill="#11241d" stroke="#166534"/>
-    <text x="923" y="455" text-anchor="middle" fill="#bbf7d0" font-size="12">END-TO-END PRODUCT OWNERSHIP</text>
+  <g>
+    <text x="68" y="219" fill="#d8e2f0" font-size="17"><tspan fill="#34d399">$</tspan> build-product --targets all<tspan class="cursor" fill="#22d3ee">_</tspan></text>
+    <path d="M68 232H1132" stroke="url(#accent)" stroke-width="1.5" stroke-dasharray="7 8" opacity=".6" class="flow"/>
+  </g>
+
+  <g>
+    <rect x="68" y="252" width="257" height="76" rx="12" fill="url(#panel)" stroke="#1e3a4a" class="signal"/>
+    <text x="88" y="279" class="panel-title">01  NATIVE MOBILE</text>
+    <text x="88" y="306" class="panel-copy">Kotlin · Swift · watchOS</text>
+
+    <rect x="337" y="252" width="257" height="76" rx="12" fill="url(#panel)" stroke="#1e3a4a" class="signal signal-delay"/>
+    <text x="357" y="279" class="panel-title">02  CROSS-PLATFORM</text>
+    <text x="357" y="306" class="panel-copy">Flutter · Kotlin Multiplatform</text>
+
+    <rect x="606" y="252" width="257" height="76" rx="12" fill="url(#panel)" stroke="#1e3a4a" class="signal signal-delay-2"/>
+    <text x="626" y="279" class="panel-title">03  CONNECTED SYSTEMS</text>
+    <text x="626" y="306" class="panel-copy">BLE · IoT · Realtime</text>
+
+    <rect x="875" y="252" width="257" height="76" rx="12" fill="url(#panel)" stroke="#1e3a4a" class="signal signal-delay-3"/>
+    <text x="895" y="279" class="panel-title">04  PRODUCT INFRA</text>
+    <text x="895" y="306" class="panel-copy">Backend · Cloud · CI/CD</text>
+  </g>
+
+  <g>
+    <text x="68" y="371" fill="#718096" font-size="12" letter-spacing="1.4px">DELIVERY PIPELINE</text>
+    <text x="238" y="371" fill="#d8e2f0" font-size="14">IDEA</text>
+    <text x="296" y="371" fill="#22d3ee" font-size="14">→</text>
+    <text x="330" y="371" fill="#d8e2f0" font-size="14">ARCHITECTURE</text>
+    <text x="454" y="371" fill="#22d3ee" font-size="14">→</text>
+    <text x="488" y="371" fill="#d8e2f0" font-size="14">BUILD</text>
+    <text x="546" y="371" fill="#22d3ee" font-size="14">→</text>
+    <text x="580" y="371" fill="#d8e2f0" font-size="14">DEPLOY</text>
+    <text x="646" y="371" fill="#22d3ee" font-size="14">→</text>
+    <text x="680" y="371" fill="#d8e2f0" font-size="14">OBSERVE</text>
+    <text x="756" y="371" fill="#22d3ee" font-size="14">→</text>
+    <text x="790" y="371" fill="#d8e2f0" font-size="14">SCALE</text>
+    <path d="M852 366H1132" stroke="#164e63" stroke-width="2" stroke-dasharray="5 8" class="flow"/>
+    <circle cx="1128" cy="366" r="4" fill="#22d3ee" filter="url(#softGlow)"/>
   </g>
 </svg>
 '''
