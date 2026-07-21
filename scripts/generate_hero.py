@@ -1,51 +1,17 @@
 #!/usr/bin/env python3
-"""Generate the self-hosted animated hero for the profile README."""
+"""Generate the self-hosted animated systems hero for the profile README."""
 
-from __future__ import annotations
-
-from html import escape
 from pathlib import Path
-
-from PIL import Image, ImageEnhance, ImageOps
 
 
 ROOT = Path(__file__).resolve().parents[1]
-AVATAR = ROOT / "assets" / "avatar.png"
 OUTPUT = ROOT / "assets" / "profile-terminal.svg"
 
 
-def avatar_to_ascii(columns: int = 32, rows: int = 24) -> list[str]:
-    image = Image.open(AVATAR).convert("RGB")
-    image = ImageOps.fit(image, (columns, rows), method=Image.Resampling.LANCZOS)
-    image = ImageEnhance.Contrast(ImageOps.grayscale(image)).enhance(1.35)
-    palette = " .:-=+*#%@"
-
-    lines: list[str] = []
-    for y in range(rows):
-        line = "".join(
-            palette[round((255 - image.getpixel((x, y))) / 255 * (len(palette) - 1))]
-            for x in range(columns)
-        )
-        lines.append(line.rstrip())
-    return lines
-
-
-def render_ascii(lines: list[str]) -> str:
-    rows = []
-    for index, line in enumerate(lines):
-        delay = 0.04 * index
-        rows.append(
-            f'<text x="82" y="{128 + index * 12}" class="ascii reveal" '
-            f'style="animation-delay:{delay:.2f}s">{escape(line or " ")}</text>'
-        )
-    return "\n    ".join(rows)
-
-
 def build_svg() -> str:
-    ascii_rows = render_ascii(avatar_to_ascii())
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
-  <title id="title">Saifuddin Adenwala, Mobile Product Engineer</title>
-  <desc id="desc">Animated terminal introducing skills in native and cross-platform mobile engineering, connected devices, real-time systems, backend, cloud, and product delivery.</desc>
+    return '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Saifuddin Adenwala, Mobile and Full-Stack Product Engineer</title>
+  <desc id="desc">An animated mobile systems map connecting Android, iOS, watchOS, IoT, realtime services, backend, and cloud infrastructure.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#07111f"/>
@@ -67,23 +33,32 @@ def build_svg() -> str:
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000814" flood-opacity=".55"/>
     </filter>
+    <filter id="nodeGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <style>
-      text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }}
-      .muted {{ fill:#718096; }}
-      .body {{ fill:#d8e2f0; font-size:18px; }}
-      .label {{ fill:#7dd3fc; font-size:15px; letter-spacing:1.4px; }}
-      .ascii {{ fill:#fbbf24; font-size:12px; white-space:pre; }}
-      .reveal {{ opacity:0; animation:reveal .55s cubic-bezier(.2,.75,.25,1) forwards; }}
-      .cursor {{ animation:blink 1s steps(1,end) infinite; }}
-      .scan {{ animation:scan 5.5s ease-in-out infinite; }}
-      .pulse {{ animation:pulse 2.8s ease-in-out infinite; transform-origin:center; }}
-      @keyframes reveal {{ from {{ opacity:0; transform:translateY(8px); }} to {{ opacity:1; transform:translateY(0); }} }}
-      @keyframes blink {{ 50% {{ opacity:0; }} }}
-      @keyframes scan {{ 0%,15% {{ transform:translateY(-80px); opacity:0; }} 35% {{ opacity:.45; }} 70%,100% {{ transform:translateY(420px); opacity:0; }} }}
-      @keyframes pulse {{ 0%,100% {{ opacity:.4; }} 50% {{ opacity:1; }} }}
-      @media (prefers-reduced-motion: reduce) {{
-        .reveal {{ opacity:1; animation:none; }} .cursor,.scan,.pulse {{ animation:none; }}
-      }}
+      text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .body { fill:#d8e2f0; font-size:18px; }
+      .label { fill:#7dd3fc; font-size:13px; letter-spacing:1.2px; }
+      .tiny { fill:#94a3b8; font-size:11px; letter-spacing:.7px; }
+      .route { fill:none; stroke:#164e63; stroke-width:2; stroke-linecap:round; stroke-dasharray:5 7; }
+      .device { fill:#091421; stroke:#38bdf8; stroke-width:1.5; }
+      .service { fill:#111827; stroke:#fbbf24; stroke-width:1.5; }
+      .reveal { opacity:0; animation:reveal .55s cubic-bezier(.2,.75,.25,1) forwards; }
+      .cursor { animation:blink 1s steps(1,end) infinite; }
+      .scan { animation:scan 5.5s ease-in-out infinite; }
+      .pulse { animation:pulse 2.4s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+      .flow { animation:flow 1.9s linear infinite; }
+      .flow-late { animation:flow 1.9s .9s linear infinite; }
+      @keyframes reveal { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+      @keyframes blink { 50% { opacity:0; } }
+      @keyframes scan { 0%,15% { transform:translateY(-80px); opacity:0; } 35% { opacity:.4; } 70%,100% { transform:translateY(420px); opacity:0; } }
+      @keyframes pulse { 0%,100% { opacity:.45; transform:scale(.88); } 50% { opacity:1; transform:scale(1.12); } }
+      @keyframes flow { to { stroke-dashoffset:-24; } }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity:1; animation:none; } .cursor,.scan,.pulse,.flow,.flow-late { animation:none; }
+      }
     </style>
   </defs>
 
@@ -91,44 +66,84 @@ def build_svg() -> str:
   <rect x="24" y="24" width="1152" height="452" rx="18" fill="url(#background)" filter="url(#shadow)"/>
   <g clip-path="url(#screen)">
     <rect x="24" y="24" width="1152" height="452" fill="url(#grid)"/>
-    <circle cx="1000" cy="90" r="260" fill="url(#glow)"/>
+    <circle cx="1010" cy="92" r="270" fill="url(#glow)"/>
     <rect x="24" y="24" width="1152" height="48" fill="#0a1220"/>
     <circle cx="52" cy="48" r="6" fill="#fb7185"/>
     <circle cx="74" cy="48" r="6" fill="#fbbf24"/>
     <circle cx="96" cy="48" r="6" fill="#34d399"/>
-    <text x="600" y="54" text-anchor="middle" fill="#718096" font-size="14">saifuddin@mobile-systems: ~</text>
-    <rect class="scan" x="24" y="72" width="1152" height="70" fill="url(#accent)" opacity=".08"/>
+    <text x="600" y="54" text-anchor="middle" fill="#718096" font-size="14">saifuddin@product-engineering: ~</text>
+    <rect class="scan" x="24" y="72" width="1152" height="70" fill="url(#accent)" opacity=".07"/>
   </g>
 
-  <rect x="58" y="94" width="386" height="322" rx="14" fill="#060d18" stroke="#1e3a4a"/>
-  <text x="82" y="116" class="label">AVATAR // ASCII MODE</text>
-  {ascii_rows}
-  <circle cx="407" cy="112" r="4" fill="#22d3ee" class="pulse"/>
+  <g class="reveal" style="animation-delay:.12s">
+    <rect x="58" y="94" width="402" height="322" rx="14" fill="#060d18" stroke="#1e3a4a"/>
+    <text x="82" y="119" class="label">MOBILE SYSTEMS // LIVE</text>
+    <circle cx="425" cy="114" r="4" fill="#34d399" class="pulse"/>
+
+    <!-- client devices -->
+    <rect x="84" y="147" width="58" height="96" rx="10" class="device"/>
+    <rect x="91" y="158" width="44" height="68" rx="3" fill="#0c2634"/>
+    <path d="M104 234h18" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+    <text x="113" y="261" text-anchor="middle" class="tiny">ANDROID</text>
+
+    <rect x="174" y="147" width="58" height="96" rx="12" class="device"/>
+    <rect x="181" y="157" width="44" height="69" rx="4" fill="#0c2634"/>
+    <rect x="194" y="151" width="18" height="3" rx="1.5" fill="#38bdf8"/>
+    <text x="203" y="261" text-anchor="middle" class="tiny">iOS</text>
+
+    <rect x="274" y="160" width="58" height="68" rx="18" class="device"/>
+    <rect x="281" y="169" width="44" height="50" rx="13" fill="#0c2634"/>
+    <path d="M289 160v-11h28v11M289 228v11h28v-11" class="device"/>
+    <text x="303" y="261" text-anchor="middle" class="tiny">watchOS</text>
+
+    <!-- routing layer -->
+    <path d="M113 280v25h90M203 280v25M303 280v25H203" class="route flow"/>
+    <rect x="139" y="286" width="128" height="38" rx="19" fill="#0c2634" stroke="#22d3ee"/>
+    <circle cx="158" cy="305" r="5" fill="#22d3ee" class="pulse"/>
+    <text x="207" y="310" text-anchor="middle" fill="#a5f3fc" font-size="12">REALTIME / BLE</text>
+
+    <!-- IoT, backend, cloud -->
+    <rect x="82" y="348" width="88" height="40" rx="8" class="service"/>
+    <circle cx="99" cy="368" r="5" fill="none" stroke="#fbbf24"/>
+    <path d="M106 360q12 8 0 16M111 356q20 12 0 24" fill="none" stroke="#fbbf24" stroke-width="1.3"/>
+    <text x="140" y="372" text-anchor="middle" class="tiny">IoT</text>
+
+    <rect x="191" y="348" width="102" height="40" rx="8" class="service"/>
+    <path d="M207 359h18v18h-18zM211 363h10v10h-10z" fill="none" stroke="#fbbf24"/>
+    <text x="262" y="372" text-anchor="middle" class="tiny">BACKEND</text>
+
+    <path d="M331 380c-14 0-21-9-17-19 3-8 11-11 18-8 4-15 27-17 34-3 14-2 22 8 19 18-2 8-9 12-20 12z" class="service"/>
+    <text x="350" y="371" text-anchor="middle" class="tiny">CLOUD</text>
+
+    <path d="M203 324v25M170 368h21M293 368h21" class="route flow-late"/>
+    <circle cx="180" cy="368" r="3.5" fill="#22d3ee" filter="url(#nodeGlow)" class="pulse"/>
+    <circle cx="303" cy="368" r="3.5" fill="#fbbf24" filter="url(#nodeGlow)" class="pulse"/>
+  </g>
 
   <g>
-    <text x="500" y="111" class="body reveal" style="animation-delay:.15s"><tspan fill="#34d399">$</tspan> whoami</text>
-    <text x="500" y="160" fill="#f8fafc" font-size="35" font-weight="700" class="reveal" style="animation-delay:.45s">Saifuddin Adenwala</text>
-    <text x="500" y="190" fill="#7dd3fc" font-size="20" class="reveal" style="animation-delay:.68s">Mobile Product Engineer</text>
+    <text x="510" y="111" class="body reveal" style="animation-delay:.18s"><tspan fill="#34d399">$</tspan> whoami</text>
+    <text x="510" y="160" fill="#f8fafc" font-size="35" font-weight="700" class="reveal" style="animation-delay:.42s">Saifuddin Adenwala</text>
+    <text x="510" y="190" fill="#7dd3fc" font-size="19" class="reveal" style="animation-delay:.64s">Mobile &amp; Full-Stack Product Engineer</text>
 
-    <text x="500" y="231" class="body reveal" style="animation-delay:.92s"><tspan fill="#34d399">$</tspan> capabilities --core</text>
-    <text x="522" y="264" class="body reveal" style="animation-delay:1.12s"><tspan fill="#fbbf24">→</tspan> Native Android + iOS</text>
-    <text x="522" y="294" class="body reveal" style="animation-delay:1.30s"><tspan fill="#fbbf24">→</tspan> Flutter + Kotlin Multiplatform</text>
-    <text x="522" y="324" class="body reveal" style="animation-delay:1.48s"><tspan fill="#fbbf24">→</tspan> BLE / IoT + realtime systems</text>
-    <text x="522" y="354" class="body reveal" style="animation-delay:1.66s"><tspan fill="#fbbf24">→</tspan> Backend + cloud + release engineering</text>
+    <text x="510" y="231" class="body reveal" style="animation-delay:.88s"><tspan fill="#34d399">$</tspan> capabilities --core</text>
+    <text x="532" y="264" class="body reveal" style="animation-delay:1.08s"><tspan fill="#fbbf24">→</tspan> Native Android + iOS + watchOS</text>
+    <text x="532" y="294" class="body reveal" style="animation-delay:1.26s"><tspan fill="#fbbf24">→</tspan> Flutter + Kotlin Multiplatform</text>
+    <text x="532" y="324" class="body reveal" style="animation-delay:1.44s"><tspan fill="#fbbf24">→</tspan> BLE / IoT + realtime systems</text>
+    <text x="532" y="354" class="body reveal" style="animation-delay:1.62s"><tspan fill="#fbbf24">→</tspan> Backend + cloud + release engineering</text>
 
-    <text x="500" y="396" class="body reveal" style="animation-delay:1.90s"><tspan fill="#34d399">$</tspan> status</text>
-    <text x="522" y="426" fill="#d8e2f0" font-size="18" class="reveal" style="animation-delay:2.08s">shipping products end-to-end<tspan class="cursor" fill="#22d3ee">_</tspan></text>
+    <text x="510" y="396" class="body reveal" style="animation-delay:1.84s"><tspan fill="#34d399">$</tspan> status</text>
+    <text x="532" y="426" fill="#d8e2f0" font-size="18" class="reveal" style="animation-delay:2.02s">shipping products end-to-end<tspan class="cursor" fill="#22d3ee">_</tspan></text>
   </g>
 
-  <g class="reveal" style="animation-delay:2.28s">
+  <g class="reveal" style="animation-delay:2.22s">
     <rect x="58" y="438" width="190" height="24" rx="12" fill="#0e2938" stroke="#155e75"/>
     <text x="153" y="455" text-anchor="middle" fill="#a5f3fc" font-size="12">50K+ INSTALLS</text>
-    <rect x="260" y="438" width="184" height="24" rx="12" fill="#2b2110" stroke="#854d0e"/>
-    <text x="352" y="455" text-anchor="middle" fill="#fde68a" font-size="12">4.4★ RATING</text>
-    <rect x="500" y="438" width="236" height="24" rx="12" fill="#0e2938" stroke="#155e75"/>
-    <text x="618" y="455" text-anchor="middle" fill="#a5f3fc" font-size="12">30+ UPSTREAM PRs</text>
-    <rect x="748" y="438" width="330" height="24" rx="12" fill="#11241d" stroke="#166534"/>
-    <text x="913" y="455" text-anchor="middle" fill="#bbf7d0" font-size="12">END-TO-END PRODUCT OWNERSHIP</text>
+    <rect x="260" y="438" width="200" height="24" rx="12" fill="#2b2110" stroke="#854d0e"/>
+    <text x="360" y="455" text-anchor="middle" fill="#fde68a" font-size="12">4.4★ RATING</text>
+    <rect x="510" y="438" width="236" height="24" rx="12" fill="#0e2938" stroke="#155e75"/>
+    <text x="628" y="455" text-anchor="middle" fill="#a5f3fc" font-size="12">30+ UPSTREAM PRs</text>
+    <rect x="758" y="438" width="330" height="24" rx="12" fill="#11241d" stroke="#166534"/>
+    <text x="923" y="455" text-anchor="middle" fill="#bbf7d0" font-size="12">END-TO-END PRODUCT OWNERSHIP</text>
   </g>
 </svg>
 '''

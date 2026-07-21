@@ -1,8 +1,10 @@
 <p align="center">
-  <img src="./assets/profile-terminal.svg" alt="Saifuddin Adenwala — Mobile Product Engineer" width="100%" />
+  <img src="./assets/profile-terminal.svg" alt="Saifuddin Adenwala — Mobile and Full-Stack Product Engineer" width="100%" />
 </p>
 
 <p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Saifuddin53&label=Profile%20views&color=22d3ee&style=flat-square" alt="Profile views" />
+  &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/saifuddin-adenwala-916b35249/">LinkedIn</a>
   &nbsp;·&nbsp;
   <a href="mailto:adenwala32@gmail.com">Email</a>
@@ -10,20 +12,28 @@
   <a href="https://github.com/Saifuddin53?tab=repositories">Repositories</a>
 </p>
 
-## About
+## Engineering snapshot
 
-Mobile engineer building native Android and iOS applications, cross-platform products, connected-device experiences, real-time systems, and the backend infrastructure behind them.
+| | |
+|---|---|
+| **Mobile** | Kotlin · Jetpack Compose · Swift · SwiftUI · Flutter · Kotlin Multiplatform · watchOS |
+| **Realtime & IoT** | BLE/GATT · ESP32 · WebRTC/RTC · live audio/video · Firebase |
+| **Backend** | Node.js · TypeScript · Parse Server · MongoDB · Valkey/Redis |
+| **Cloud & delivery** | React · Docker · DigitalOcean · Cloudflare · CI/CD · app-store delivery |
 
-## Toolbox
+## GitHub activity
 
-- **Mobile:** Kotlin · Jetpack Compose · Swift · SwiftUI · Flutter · Kotlin Multiplatform
-- **Connected and real-time:** BLE/GATT · ESP32 · WebRTC/RTC · live audio/video · Firebase
-- **Backend:** Node.js · TypeScript · Parse Server · MongoDB · Valkey/Redis
-- **Web and cloud:** React · Docker · DigitalOcean · Cloudflare · CI/CD
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Saifuddin53&theme=tokyonight" alt="Saifuddin's GitHub contribution summary" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=Saifuddin53&theme=tokyonight&hide_border=true" alt="Saifuddin's GitHub streak" />
+</p>
 
 ## Open source
 
-30+ merged upstream pull requests focused on Kotlin modernization, Jetpack Compose, mobile architecture, persistence, navigation, concurrency, and testing.
+30+ merged upstream pull requests across Kotlin modernization, Jetpack Compose, mobile architecture, persistence, navigation, concurrency, and testing.
 
 <p>
   <a href="https://github.com/search?q=is%3Apr+author%3ASaifuddin53+is%3Amerged&type=pullrequests">View merged pull requests</a>
