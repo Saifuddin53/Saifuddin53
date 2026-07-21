@@ -21,12 +21,6 @@
 | **Backend** | Node.js · TypeScript · Parse Server · MongoDB · Valkey/Redis |
 | **Cloud & delivery** | React · Docker · DigitalOcean · Cloudflare · CI/CD · app-store delivery |
 
-## GitHub activity
-
-<p align="center">
-  <img src="./assets/github-summary.svg" alt="Saifuddin's GitHub contribution summary" width="100%" />
-</p>
-
 <p align="center">
   <img src="./assets/github-streak.svg" alt="Saifuddin's GitHub streak" />
 </p>
