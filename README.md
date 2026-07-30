@@ -26,6 +26,40 @@
 |---|---|
 | Product design, frontend, backend, databases, APIs and the architecture connecting everything together. | Cloud deployment, app-store delivery, monitoring, performance improvements and infrastructure prepared for growth. |
 
+## Core technologies
+
+### Mobile
+
+<p>
+  <img src="./assets/skills-mobile.svg" alt="Kotlin, Swift, Flutter, Dart, Android Studio and Apple platforms" />
+</p>
+
+Kotlin · Jetpack Compose · Swift · SwiftUI · watchOS · Flutter · Dart · Kotlin Multiplatform
+
+### Connected systems
+
+<p>
+  <img src="./assets/skills-connected.svg" alt="Arduino and ESP32, Firebase and C++" />
+</p>
+
+BLE/GATT · ESP32 · IoT devices · WebRTC/RTC · realtime audio and video · Firebase
+
+### Backend and data
+
+<p>
+  <img src="./assets/skills-backend.svg" alt="Node.js, TypeScript, MongoDB, Redis and Express" />
+</p>
+
+Node.js · TypeScript · Parse Server · MongoDB · Valkey/Redis · APIs
+
+### Frontend, cloud and delivery
+
+<p>
+  <img src="./assets/skills-delivery.svg" alt="React, Docker, Cloudflare, Git, GitHub Actions and Linux" />
+</p>
+
+React · Docker · DigitalOcean · Cloudflare · GitHub Actions · CI/CD · App Store and Play Store delivery
+
 ## Consistency
 
 <p align="center">
@@ -34,18 +68,6 @@
 
 <p align="center">
   <img src="./assets/github-streak.svg" alt="Saifuddin's GitHub contribution streak" width="70%" />
-</p>
-
-## GitHub snapshot
-
-<p align="center">
-  <img src="./assets/github-stats.svg" alt="Saifuddin's GitHub statistics" width="48%" />
-  <img src="./assets/productive-time.svg" alt="Saifuddin's most productive contribution times" width="48%" />
-</p>
-
-<p align="center">
-  <img src="./assets/repos-per-language.svg" alt="Languages represented across Saifuddin's repositories" width="48%" />
-  <img src="./assets/most-commit-language.svg" alt="Languages used across Saifuddin's commits" width="48%" />
 </p>
 
 ## Open source
@@ -60,20 +82,10 @@ These contributions cover mobile architecture, interface development, navigation
   <a href="https://github.com/Saifuddin53?tab=repositories">Explore public repositories</a>
 </p>
 
-<details>
-  <summary><strong>Core technologies</strong></summary>
-  <br />
-
-  **Mobile:** Kotlin · Jetpack Compose · Swift · SwiftUI · watchOS · Flutter · Kotlin Multiplatform<br />
-  **Connected systems:** BLE/GATT · ESP32 · IoT · WebRTC/RTC · Firebase<br />
-  **Backend:** Node.js · TypeScript · Parse Server · MongoDB · Valkey/Redis<br />
-  **Cloud and delivery:** React · Docker · DigitalOcean · Cloudflare · CI/CD · App Store and Play Store delivery
-</details>
-
 <!--
 Visuals generated with open-source projects:
 - capsule-render: https://github.com/kyechan99/capsule-render
 - snk: https://github.com/Platane/snk
 - github-readme-streak-stats: https://github.com/DenverCoder1/github-readme-streak-stats
-- github-profile-summary-cards: https://github.com/vn7n24fzkq/github-profile-summary-cards
+- skill-icons: https://github.com/tandpfun/skill-icons
 -->
