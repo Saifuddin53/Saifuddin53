@@ -63,7 +63,7 @@ React · Docker · DigitalOcean · Cloudflare · GitHub Actions · CI/CD · App 
 ## Consistency
 
 <p align="center">
-  <img src="./assets/contribution-snake.svg" alt="Animated visualization of Saifuddin's GitHub contributions" width="100%" />
+  <img src="./assets/contribution-calendar.svg" alt="Saifuddin's GitHub contribution calendar for the last year" width="100%" />
 </p>
 
 <p align="center">
@@ -85,7 +85,7 @@ These contributions cover mobile architecture, interface development, navigation
 <!--
 Visuals generated with open-source projects:
 - capsule-render: https://github.com/kyechan99/capsule-render
-- snk: https://github.com/Platane/snk
+- githubchart-api: https://github.com/2016rshah/githubchart-api
 - github-readme-streak-stats: https://github.com/DenverCoder1/github-readme-streak-stats
 - skill-icons: https://github.com/tandpfun/skill-icons
 -->
